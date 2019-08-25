@@ -6,9 +6,10 @@ import java.util.Map;
 /**
  * @author motb
  * @date 2019/8/25 11:04
- * @description: 基础算法题目
+ * @description: 两数之和
  */
-public class BaseAlgorithm {
+public class TwoSum {
+
     /**
      * 两数之和
      * <p>
@@ -35,7 +36,7 @@ public class BaseAlgorithm {
      * @param target
      * @return
      */
-    public int[] twoSum1(int[] nums, int target) {
+    public static int[] twoSum1(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {
                 if (nums[j] == target - nums[i]) {
@@ -58,7 +59,7 @@ public class BaseAlgorithm {
      * @param target
      * @return
      */
-    public int[] twoSum2(int[] nums, int target) {
+    public static int[] twoSum2(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             map.put(nums[i], i);
@@ -71,6 +72,31 @@ public class BaseAlgorithm {
             }
         }
         throw new IllegalArgumentException("No two sum solution");
+    }
+
+    /**
+     * 一遍哈希表
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(n)
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+    public static int[] twoSum3(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+            map.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+
+    public static void main(String[] args) {
+
     }
 
 }
