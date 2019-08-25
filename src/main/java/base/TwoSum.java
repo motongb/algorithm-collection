@@ -96,7 +96,14 @@ public class TwoSum {
     }
 
     public static void main(String[] args) {
-
+        int[] nums = {1, 2, 3, 7, 9};
+        int target = 8;
+        int[] result1 = twoSum1(nums, target);
+        int[] result2 = twoSum2(nums, target);
+        int[] result3 = twoSum3(nums, target);
+        System.out.println("[" + result1[0] + "," + result1[1] + "]");
+        System.out.println("[" + result2[0] + "," + result2[1] + "]");
+        System.out.println("[" + result3[0] + "," + result3[1] + "]");
     }
 
 }
